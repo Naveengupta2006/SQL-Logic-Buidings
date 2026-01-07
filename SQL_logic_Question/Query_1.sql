@@ -20,6 +20,9 @@ values
 (4,'priya',28,'f','delhi',45000,'finance','2022-08-01'),
 (5,'rohan',40,'m','mumbai',70000,'HR','2019-11-12');
 
+-- Basic Level Questions
+
+
 -- Select all records from the table.
 select * from employees;
 
