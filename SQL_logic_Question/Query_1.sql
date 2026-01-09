@@ -186,3 +186,30 @@ from employees
 select *
 from employees
 where name like "%a%"
+
+-- Case & Conditional logic
+
+-- Create a column salary_status
+
+-- High → salary ≥ 50,000
+-- Low → salary < 50,000
+select *,
+        case
+            when salary > 50000 then 'High'
+            else 'low'
+        end as salary_status
+from employees
+
+-- create age_group
+-- young - age < 30,
+-- adult - 30-40,
+-- senior - > 40
+
+select *,
+        case
+            when age < 30 then 'Young'
+            when age between 30 and 40 then 'Adult'
+            else 'Senior'
+        end as age_group
+
+from employees            
