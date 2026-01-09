@@ -70,3 +70,89 @@ select *
 from employees
 order by salary DESC
 
+-- Filtering & Conditions
+
+-- Find employees from delhi or mumbai.
+
+select *
+from employees
+where city in ('delhi','mumbai')
+
+-- Find employees not working in HR.
+select *
+from employees
+where department != 'HR'
+
+-- Display employees with salary >=50000.
+select *
+from employees
+where salary >= 50000
+
+-- count total number of employees.
+select count(*)
+from employees
+
+-- count employees in each department.
+select count(*), department
+from employees
+GROUP BY department
+
+-- find unique cities.
+select DISTINCT city
+from employees
+
+-- find the highest salary.
+select MAX(salary)
+from employees
+
+-- find the lowest salary.
+select min(salary)
+from employees
+
+-- find average salary.
+select avg(salary)
+from employees
+
+-- find total salary expense.
+select sum(salary)
+from employees
+
+-- Group By logic
+
+
+-- department wise employees count
+select department, count(emp_id)
+from employees
+GROUP BY department
+
+-- department wise average salary
+select department, avg(salary)
+from employees
+group by department
+
+-- city wise highest salary
+select city, max(salary)
+from employees
+group by city
+
+-- gender wise employee count
+select gender, count(emp_id)
+from employees
+group by gender
+
+-- department having more than 1 employees
+select department, count(*)
+from employees
+GROUP BY department
+having count(*) > 1
+
+-- city wise total salary
+select city, sum(salary)
+from employees
+group by city
+
+-- department wise minimum salary
+select department, min(salary)
+from employees
+group by department
+
