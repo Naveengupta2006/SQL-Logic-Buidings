@@ -164,3 +164,8 @@ group by department
 -- Extract year from join_date.
 select EXTRACT(year from join_date) as join_date
 from employees
+
+-- Find employees who joined in 2022.
+select *
+from employees
+where extract(year from join_date) = 2022
