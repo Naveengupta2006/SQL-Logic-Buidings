@@ -169,3 +169,20 @@ from employees
 select *
 from employees
 where extract(year from join_date) = 2022
+
+-- convert name to uppercase
+select UPPER(name)
+from employees
+
+-- find lenght of employees names
+select LENGTH(name)
+from employees
+
+-- concatenate name and city
+select concat(name, '-', city)
+from employees
+
+-- find employees whose name contain 'a'
+select *
+from employees
+where name like "%a%"
