@@ -156,3 +156,11 @@ select department, min(salary)
 from employees
 group by department
 
+
+
+-- Date & String Logic
+
+
+-- Extract year from join_date.
+select EXTRACT(year from join_date) as join_date
+from employees
