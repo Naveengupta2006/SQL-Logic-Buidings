@@ -213,3 +213,83 @@ select *,
         end as age_group
 
 from employees            
+-- Subquery logic
+
+-- Find Employees earing more than averge salary.
+select *
+from employees
+where salary > (select avg(salary) from employees)
+
+-- find employees with maximun salary
+
+select *
+from employees
+where salary = (select max(salary) from employees)
+
+-- Find employees earning second highest salary
+select *
+from employees
+where salary = (
+    select max(salary)
+    from employees
+    where salary < (select max(salary) from employees)
+)
+
+select *
+from employees
+where department = (
+    select department
+    from employees
+    group by department
+    order by avg(salary) desc
+    limit 1
+)
+
+
+-- Basic Logic Buiding question.
+
+
+-- find employees whose salary is greater than the average salary
+select *
+from employees
+where salary > (select avg(salary) from employees)
+
+-- find employees whose age is between 25 and 35.
+select *
+from employees
+where age BETWEEN 25 and 35
+
+-- fetch employees whose department is IT and city is delhi.
+
+select *
+from employees
+where department = 'IT' and  
+city = 'Delhi'
+
+-- fetch employees whose department is IT or finance.
+select *
+from employees
+where department in ('IT' , 'Finance')
+
+-- find employees whose name ends with 'a'
+select *
+from employees
+where name like '%a'
+
+-- Find employees whose name does not contain 'o'
+select *
+from employees
+where name not like '%o%'
+
+-- find employees with null values.
+select *
+from employees
+where salary > 0
+
+-- replace null salary with 0 in output
+select *,COALESCE(salary, 0)
+from employees
+
+select *
+from employees
+order by department asc, salary desc;
