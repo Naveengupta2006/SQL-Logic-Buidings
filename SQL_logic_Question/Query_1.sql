@@ -293,3 +293,63 @@ from employees
 select *
 from employees
 order by department asc, salary desc;
+
+use company
+
+-- Aggregation & GROUP BY Logic
+
+-- department wise totol salary
+
+select department, sum(salary) as total_salary
+from employees
+group by department
+
+-- department wise maximun salary
+select department, max(salary)
+from employees
+group by department
+
+-- department wise minimum salary
+select department, min(salary)
+from employees
+group by department
+
+-- department wise average salary
+select department, avg(salary)
+from employees
+group by department
+
+-- find department where average salary > 50000.
+select department, avg(salary)
+from employees
+group by department
+having avg(salary) > 50000
+
+-- city wise employees count
+select city, count(emp_id)
+from employees
+group by city
+
+-- city-wise average salary
+select city, avg(salary)
+from employees
+group by city
+
+-- gender wise average salary
+select gender, avg(salary)
+from employees
+group by gender
+
+-- find department with highest total salary
+select department, sum(salary) as total_salary
+from employees
+group by department
+order by total_salary desc
+limit 1
+
+-- find city with lowest average salary.
+select city, avg(salary) as lowest_salary
+from employees
+group by city
+order by lowest_salary asc
+limit 1
