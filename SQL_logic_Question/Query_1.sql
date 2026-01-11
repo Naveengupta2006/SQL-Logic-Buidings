@@ -353,3 +353,37 @@ from employees
 group by city
 order by lowest_salary asc
 limit 1
+
+use company
+
+-- Having vs where 
+
+-- Find department having moe=re than 2 employees
+select department, count(*) as employee_count
+from employees
+group by department
+having count(*) > 2
+
+-- find cities where total salary > 100000
+select city, sum(salary) as total_salary
+from employees
+group by city
+having total_salary > 100000
+
+-- find department where max salary >= 70000.
+select department, max(salary) as max_salary
+from employees
+group by department
+having max_salary >= 70000
+
+-- find genders with average age > 30.
+select gender, avg(age) as avg_age
+from employees
+group by gender
+having avg_age > 30
+
+-- find department having employee count = 1
+select department, count(*)
+from employees
+group by department
+having count(*) = 1
