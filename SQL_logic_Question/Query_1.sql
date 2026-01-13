@@ -1,3 +1,5 @@
+-- Active: 1768293064226@@localhost@3306@company
+-- Active: 1768293064226@@localhost@3306@company
 CREATE DATABASE company;
 use company;
 
@@ -294,8 +296,6 @@ select *
 from employees
 order by department asc, salary desc;
 
-use company
-
 -- Aggregation & GROUP BY Logic
 
 -- department wise totol salary
@@ -387,3 +387,54 @@ select department, count(*)
 from employees
 group by department
 having count(*) = 1
+
+
+-- String & Date Logic
+
+-- Find employees whose name starts with vowels
+
+select *
+from employees
+where left(UPPER(name), 1) in ('A','E','I','O','U')
+
+-- find employees whose name length > 4
+select *
+from employees
+where LENGTH(name) > 4
+
+-- Extract month from join_date
+select EXTRACT(month from join_date) as join_date
+from employees
+
+-- find employees who joined in january.
+select *
+from employees
+where month(join_date) = 1
+
+-- find employees who joined before 2020.
+select *
+from employees
+where year(join_date) = '2020'
+
+-- find number of employees joined each year.
+select year(join_date) as join_year, count(*) as total_emp
+from employees
+group by year(join_date)
+order by join_year
+
+-- display join_date in DD_MM_YYYY format
+select DATE_FORMAT(join_date, '%d-%m-%y')
+from employees
+
+-- replace city name delhi - newdelhi
+select REPLACE(city, 'delhi','new delhi')
+from employees
+
+-- find employees whose name has exactly 5 characters
+select *
+from employees
+where LENGTH(name) =  5
+
+-- reverse employee names
+select REVERSE(name)
+from employees
