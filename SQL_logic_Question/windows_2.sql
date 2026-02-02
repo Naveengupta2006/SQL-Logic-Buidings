@@ -67,3 +67,5 @@ from (
     rank() over(PARTITION BY dept_id order by salary desc) as rak
     from employee
 )  t
+
+

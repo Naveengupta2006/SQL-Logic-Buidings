@@ -17,3 +17,4 @@ from(
     from employee 
 ) t
 where rak = 1
+

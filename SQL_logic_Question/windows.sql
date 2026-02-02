@@ -18,3 +18,4 @@ from (
 
 ) t 
 where salary_bet BETWEEN 2 and 4;
+
