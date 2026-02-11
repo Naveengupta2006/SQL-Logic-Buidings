@@ -20,5 +20,14 @@ from(
 )t
 where rn = 1
 
+-- identify duplicates salary records.
+select *
+from(
+    select *,
+    row_number() over(PARTITION BY salary ) as rn 
+    from employee
+) t
+where rn > 1
+
 
 
