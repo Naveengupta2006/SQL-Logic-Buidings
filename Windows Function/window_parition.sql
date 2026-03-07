@@ -15,5 +15,5 @@ from(
     select *,
     rank() over(PARTITION BY dept order by salary desc) as dept_wise
     from employee
-) TABLE
+) t
 
